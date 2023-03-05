@@ -5,7 +5,7 @@ class MemeController < AppController
     #Display all memes
     get '/memes' do
         memes = Meme.all
-        memes.to_json
+        memes.to_json(include: { user: {only: [:full_name]}})
     end
 
     # Display memes by id
